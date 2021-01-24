@@ -16,7 +16,9 @@ Unreleased (2021-01-18)
 - New saving and loading from/to Astropy Tables and Timeseries
 - Improved I/O to ascii, hdf5 and other formats
 
-`Full list of changes <https://github.com/StingraySoftware/stingray/compare/v0.2...main>`_
+`Full list of changes`__
+
+__ https://github.com/StingraySoftware/stingray/compare/v0.2...main
 
 v0.2 (2020-06-17)
 -----------------
@@ -33,7 +35,9 @@ v0.2 (2020-06-17)
 - Periodograms now also accept event lists (instead of just light curves)
 - Allow transparent MJDREF change in event lists and light curves
 
-`Full list of changes <https://github.com/StingraySoftware/stingray/compare/v0.1.3...v0.2>`_
+`Full list of changes`__
+
+__ https://github.com/StingraySoftware/stingray/compare/v0.1.3...v0.2>
 
 v0.1.3 (2019-06-11)
 -------------------
