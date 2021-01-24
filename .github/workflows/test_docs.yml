@@ -1,0 +1,35 @@
+# Build the documentation, treating warnings as errors, and upload the results
+# as an artifact for (optional) manual examination.
+#
+# Intended to be be run on PR to ensure that changes don't introduce
+# documentation regressions.
+name: Test documentation build
+
+on:
+  pull_request
+
+jobs:
+  build-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+          fetch-depth: 0
+      - uses: actions/setup-python@v2
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install pandoc
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[docs]"
+      - name: Build documentation
+        run: sphinx-build -W -b html -d _build/doctrees . _build/html
+        working-directory: docs
+      - name: Store results for examination
+        uses: actions/upload-artifact@v2
+        with:
+          name: sphinx-html
+          path: docs/_build/html
